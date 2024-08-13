@@ -1,0 +1,20 @@
+$base-border-color: #dddddd;
+$border-color-hover: #f7f7f7;
+$border-width: 2.5px;
+
+@mixin borderStyle($borderColor) {
+    border: $border-width solid $borderColor !important;
+}
+
+.image {
+    border-radius: 3px;
+    border: $border-width solid $base-border-color;
+}
+
+.image:hover {
+    @include borderStyle($border-color-hover);
+}
+
+.imageHover {
+    @include borderStyle($border-color-hover);
+}
