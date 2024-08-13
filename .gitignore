@@ -35,4 +35,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# project notes
 notes.txt
+
+#UI folder to test the components
+/app/Uitesting
