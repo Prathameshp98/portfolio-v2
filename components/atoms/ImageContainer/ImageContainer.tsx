@@ -7,7 +7,7 @@ const ImageContainer = ({
     altText,
     width = 180,
     height = 110,
-    hightlightType = 'overContainer',
+    hightlightType = 'overImage',
     isHover = false
 }: ImageContainerProps) => {
 
