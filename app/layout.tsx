@@ -1,5 +1,8 @@
-import type { Metadata } from 'next'
-import './globals.scss'
+import type { Metadata } from 'next';
+import './globals.scss';
+
+import { useState, useEffect } from 'react';
+import DataContext from '@/context/creation/createContext';
 
 export const metadata: Metadata = {
     title: 'Create Next App',
@@ -11,10 +14,19 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode
 }>) {
+
+    const[data, setData] = useState<any>([]);
+
+    useEffect(() => {
+
+    }, []);
+
     return (
         <html lang='en'>
             <body>
-              {children}
+                <DataContext.Provider value={{data, setData}}>
+                    {children}
+                </DataContext.Provider>
             </body>
         </html>
     )
