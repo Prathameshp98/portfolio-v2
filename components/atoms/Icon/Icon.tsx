@@ -8,9 +8,7 @@ const Icon = ({
     id,
     iconSrc,
     url,
-    width,
-    fillColor,
-    hoverFillColor = ''
+    width
 }: IconProps) => {
 
     const iconRef = useRef<HTMLDivElement>(null);
@@ -18,12 +16,12 @@ const Icon = ({
     useEffect(() => {
         const iconElement = iconRef.current;
 
-        if (iconElement && hoverFillColor) {
+        if (iconElement) {
             const svgElement = iconElement.querySelector('svg');
 
             if (svgElement) {
                 const handleMouseEnter = () => {
-                    svgElement.setAttribute('fill', hoverFillColor);
+                    svgElement.setAttribute('fill', '#94A3B8');
                 };
 
                 const handleMouseLeave = () => {
@@ -51,9 +49,7 @@ const Icon = ({
             ref={iconRef}
             onClick={redirectHandler}
             style={{
-                width: width,
-                fill: fillColor,
-                cursor: 'pointer'
+                width: width
             }}
             dangerouslySetInnerHTML={{ __html: iconSrc }} 
         />

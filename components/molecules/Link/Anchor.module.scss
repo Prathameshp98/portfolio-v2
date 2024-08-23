@@ -1,0 +1,55 @@
+/* Anchor.module.scss */
+
+.anchor {
+    cursor: pointer;
+    display: flex;
+    gap: 3px;
+    transition: transform 0.2s ease;
+}
+
+.anchor svg {
+    width: 22px;
+    transition: transform 0.2s ease;
+}
+
+.anchor:hover svg {
+    fill: #5EEAD4;
+}
+
+.left {
+    flex-direction: row-reverse;
+}
+
+.right {
+    flex-direction: row;
+}
+
+.large {
+    font-size: 18px;
+}
+
+.medium {
+    font-size: 16px;
+}
+
+.small {
+    font-size: 14px;
+}
+
+.highlight:hover {
+    color: #5EEAD4;
+}
+
+.textUnderline:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-color: #5EEAD4;
+}
+
+.anchor:hover svg.moveRight {
+    transform: translateX(5px);
+}
+
+.anchor:hover svg.moveTopRight {
+    transform: translate(5px, -3px);
+}

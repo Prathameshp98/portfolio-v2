@@ -4,6 +4,4 @@ export default interface IconProps {
     iconSrc: string;
     url: string;
     width: number;
-    fillColor: string;
-    hoverFillColor?: string;
 }
