@@ -1,8 +1,8 @@
 import axios from 'axios';
-const baseURL = 'https://portfoliov2backend1-f5j93yxk.b4a.run/';
+import { API } from '@/constants/constant';
 
 const apiClient = axios.create({
-  baseURL: baseURL,             
+  baseURL: API.baseURL,             
 });
 
 export default apiClient;
