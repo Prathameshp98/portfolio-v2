@@ -1,11 +1,9 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
 import IconProps from "./IconProps";
-import Link from 'next/link';
-import { redirect } from 'next/dist/server/api-utils';
+import styles from './Icon.module.scss';
 
 const Icon = ({
-    id,
     iconSrc,
     url,
     width
@@ -44,8 +42,8 @@ const Icon = ({
     }
 
     return (
-        <div 
-            key={id}
+        <div
+            className={styles.icon}
             ref={iconRef}
             onClick={redirectHandler}
             style={{

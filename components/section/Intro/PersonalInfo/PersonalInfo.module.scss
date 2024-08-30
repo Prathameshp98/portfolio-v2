@@ -1,0 +1,34 @@
+
+.personalInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: fixed;
+    top: 100px;
+}
+
+.personalInfo h1 {
+    color: #f7f7f7;
+    font-size: 40px;
+}
+
+.personalInfo h4 {
+    color: #f7f7f7;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.personalInfo p {
+    width: 80%;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 300;
+    margin-top: 10px;
+    color: #94A3B8;
+}
+
+@media screen and (max-width: 1024px) {
+    .personalInfo {
+        position: unset;
+    }
+}

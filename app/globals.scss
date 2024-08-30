@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 $base-bg-color: #0F172A;
+$bold-text: #f7f7f7;
 $base-font-color: #E5E4E2;
 $font-dark-color: #64748B;
 $font-dark-hover-color: #94A3B8;
@@ -39,3 +40,14 @@ body {
   transition: opacity 0.5s ease-out;
 }
 
+.boldtext {
+  color: $bold-text;
+}
+
+.paragraph {
+  color: $font-dark-color;
+}
+
+.paragraphOpace {
+  color: rgba($bold-text, 0.3);
+}

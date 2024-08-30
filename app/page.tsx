@@ -4,10 +4,13 @@ import {
   useEffect,
   useRef
 } from 'react';
+import styles from './page.module.scss';
 import DataContext from '@/context/creation/createContext';
 import fetchAll from '@/api/fetchAll';
 import useCursorGradient from '@/utils/useCursorGradient';
 import Loading from '@/components/atoms/Loading/Loading';
+import Left from '@/components/Partial/Left/Left';
+import Right from '@/components/Partial/Right/Right';
 
 export default function Home() {
     const { position, visible } = useCursorGradient();
@@ -31,8 +34,6 @@ export default function Home() {
 
       fetchData();
     }, []);
-
-    console.log(error)
     
     return (
       <main>
@@ -43,6 +44,18 @@ export default function Home() {
             >
             </div>
             {(!data || error) && <Loading hasError={error}/>}
+            {data && 
+              <div className={styles.appWrapper}>
+                <div className={styles.app}>
+                  <div className={styles.leftSection}>
+                    <Left />
+                  </div>
+                  <div className={styles.rightSection}>
+                    <Right />
+                  </div>
+                </div>
+              </div>
+            }
           </DataContext.Provider>
       </main>
       
