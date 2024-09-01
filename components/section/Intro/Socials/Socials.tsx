@@ -9,16 +9,17 @@ const Socials = () => {
         setData
     } = useDataContext();
     const socials = data.social[0].socials;
-    console.log(socials)
 
     return (
         <div className={styles.social}>
             {socials.map((icon: any) => (
-                <Icon 
-                    iconSrc={icon.url}
-                    url={icon.redirect}
-                    width={23}
-                />
+                <div key={Math.random()}>
+                    <Icon 
+                        iconSrc={icon.url}
+                        url={icon.redirect}
+                        width={23}
+                    />
+                </div>
             ))}
         </div>
     )

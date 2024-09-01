@@ -1,0 +1,49 @@
+.jumpLink {
+    position: fixed;
+    top: 330px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: rgba(247, 247, 247, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .link {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        p {
+            height: fit-content;
+            margin: 0;
+        }
+
+        .line {
+            width: 40px;
+            height: 1px;
+            background-color: rgba(247, 247, 247, 0.3);
+            transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+            margin: 18px 0;
+        }
+
+        &:hover,
+        &.active {
+            p {
+                color: #f7f7f7;
+            }
+            .line {
+                background-color: #f7f7f7;
+                width: 60px;
+                height: 2px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .jumpLink {
+        display: none;
+    }
+}

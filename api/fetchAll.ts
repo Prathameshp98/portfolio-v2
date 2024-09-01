@@ -25,29 +25,35 @@ const fetchAll = async() => {
             const [
                 socialResponse,
                 iconResponse,
+                sectionResponse,
                 introResponse,
                 aboutResponse,
                 experienceResponse,
-                // projectResponse
+                projectResponse
             ] = await Promise.all([
                 apiClient.get(`/social`),
                 apiClient.get(`/icon`),
+                apiClient.get(`/section?locale=${userLanguage}`),
                 apiClient.get(`/intro?locale=${userLanguage}`),
                 apiClient.get(`/about?locale=${userLanguage}`),
                 apiClient.get(`/experience?locale=${userLanguage}`),
-                // apiClient.get(`/project?locale=${userLanguage}`)
+                apiClient.get(`/project?locale=${userLanguage}`)
             ]);
 
             const data = {
                 social: socialResponse.data.data,
                 icon: iconResponse.data.data,
+                section: sectionResponse.data,
                 intro: introResponse.data,
                 about: aboutResponse.data,
-                experience: experienceResponse.data
+                experience: experienceResponse.data,
+                project: projectResponse.data
             };
 
             localStorage.setItem(cacheKey, JSON.stringify(data));
             localStorage.setItem(cacheExpirationKey, Date.now().toString());
+
+            console.log(data);
     
             return data;
     
