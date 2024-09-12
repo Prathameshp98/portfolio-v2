@@ -5,13 +5,15 @@ import styles from './Anchor.module.scss';
 
 const Anchor = ({
     title,
+    redirect,
     titleSize,
     iconSrc,
     hasTextHighlight = true,
     hasUnderline,
     iconPosition,
     hasBouncingIcon = false,
-    bounceDirection
+    bounceDirection,
+    highlightOnContainerHover = false
 }: AnchorProps) => {
 
     const iconRef = useRef<HTMLDivElement>(null);
@@ -32,33 +34,38 @@ const Anchor = ({
         
         if(hasBouncingIcon && iconElement){
             const svgElement = iconElement.querySelector('svg');
-            if(svgElement){
+            if(svgElement && bounceDirection){
                 svgElement.classList.add(styles[bounceDirection]);
             }     
         }
     }, [hasBouncingIcon, bounceDirection]);
 
     return (
-        <div 
+        <a 
             className={`
                 ${styles.anchor}
                 ${iconPositionStyles[iconPosition]}
             `}
+            href={redirect}
+            target='_blank'
         >
             <p
                 className={`
                     ${sizeStyles[titleSize]}
+                    ${highlightOnContainerHover && styles.wrapperHoverText}
                     ${hasTextHighlight && styles.highlight}
                     ${hasUnderline && styles.textUnderline}
                 `}
             >
                 {title}
+                <div   
+                    ref={iconRef}  
+                    className={styles.inlineIcon}
+                    dangerouslySetInnerHTML={{ __html: iconSrc }} 
+                />
             </p>
-            <div   
-                ref={iconRef}  
-                dangerouslySetInnerHTML={{ __html: iconSrc }} 
-            />
-        </div>
+            
+        </a>
     )
 }
 

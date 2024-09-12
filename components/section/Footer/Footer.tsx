@@ -1,10 +1,17 @@
 import styles from './Footer.module.scss';
+import { useDataContext } from '@/context/consumption/useContext';
 
 const Footer = () => {
+
+    const {
+        data,
+        setData
+    } = useDataContext();
+    const footer = data.footer;
     
     return (
         <div className={styles.footer}>
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+           <div dangerouslySetInnerHTML={{ __html: footer.text }} />
         </div>
     )
 }

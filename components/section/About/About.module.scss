@@ -1,0 +1,38 @@
+
+.about {
+    line-height: 27px;
+}
+
+.about h2 {
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    display: none;
+}
+
+.about p {
+    padding-bottom: 15px;
+    font-size: 17px;
+    font-weight: 300;
+    color: #94A3B8;
+}
+
+.about p span {
+    color: #f7f7f7;
+    cursor: pointer;
+}
+.about p span:hover {
+    color: #5EEAD4;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .about h2 {
+        display: block;
+        padding-bottom: 30px;
+    }
+
+    .about {
+        padding-top: 100px;
+    }
+}

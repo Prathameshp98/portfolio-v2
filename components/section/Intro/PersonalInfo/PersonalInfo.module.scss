@@ -9,7 +9,7 @@
 
 .personalInfo h1 {
     color: #f7f7f7;
-    font-size: 40px;
+    font-size: 44px;
 }
 
 .personalInfo h4 {
@@ -20,14 +20,14 @@
 
 .personalInfo p {
     width: 80%;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 30px;
     font-weight: 300;
     margin-top: 10px;
     color: #94A3B8;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1200px) {
     .personalInfo {
         position: unset;
     }

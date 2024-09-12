@@ -5,11 +5,20 @@
     display: flex;
     gap: 3px;
     transition: transform 0.2s ease;
+    text-decoration: none;
+    color: #f7f7f7;
+    text-align: left;
 }
 
 .anchor svg {
-    width: 22px;
+    width: 18px;
     transition: transform 0.2s ease;
+}
+
+.inlineIcon {
+    display: inline-block;
+    margin-left: 5px; 
+    vertical-align: middle; 
 }
 
 .anchor:hover svg {
@@ -26,14 +35,17 @@
 
 .large {
     font-size: 18px;
+    line-height: 20px;
 }
 
 .medium {
     font-size: 16px;
+    line-height: 18px;
 }
 
 .small {
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 14px;
 }
 
 .highlight:hover {
@@ -52,4 +64,12 @@
 
 .anchor:hover svg.moveTopRight {
     transform: translate(5px, -3px);
+}
+
+.wrapperHoverText {
+    color: #5EEAD4;
+}
+
+.wrapperHoverIcon {
+    fill: #5EEAD4;
 }

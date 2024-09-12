@@ -29,7 +29,8 @@ const fetchAll = async() => {
                 introResponse,
                 aboutResponse,
                 experienceResponse,
-                projectResponse
+                projectResponse,
+                footerResponse
             ] = await Promise.all([
                 apiClient.get(`/social`),
                 apiClient.get(`/icon`),
@@ -37,7 +38,8 @@ const fetchAll = async() => {
                 apiClient.get(`/intro?locale=${userLanguage}`),
                 apiClient.get(`/about?locale=${userLanguage}`),
                 apiClient.get(`/experience?locale=${userLanguage}`),
-                apiClient.get(`/project?locale=${userLanguage}`)
+                apiClient.get(`/project?locale=${userLanguage}`),
+                apiClient.get(`/footer?locale=${userLanguage}`)
             ]);
 
             const data = {
@@ -47,14 +49,13 @@ const fetchAll = async() => {
                 intro: introResponse.data,
                 about: aboutResponse.data,
                 experience: experienceResponse.data,
-                project: projectResponse.data
+                project: projectResponse.data,
+                footer: footerResponse.data
             };
 
             localStorage.setItem(cacheKey, JSON.stringify(data));
             localStorage.setItem(cacheExpirationKey, Date.now().toString());
 
-            console.log(data);
-    
             return data;
     
         } catch(error){
