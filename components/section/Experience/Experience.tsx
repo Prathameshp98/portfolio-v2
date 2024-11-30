@@ -1,13 +1,16 @@
-import Anchor from '@/components/molecules/Link/Anchor';
-import styles from './Experience.module.scss';
-import { useDataContext } from '@/context/consumption/useContext';
+
 import { useState } from 'react';
-import CardWrapper from '@/components/atoms/CardWrapper/CardWrapper';
-import Pill from '@/components/atoms/Pill/Pill';
+import { 
+    CardWrapper,
+    Pill
+} from '@/components/atoms';
+import { Anchor } from '@/components/molecules';
+import { useDataContext } from '@/context/consumption/useContext';
+import styles from './Experience.module.scss';
 
 const Experience = () => {
 
-    const[containerHover, setContainerHover] = useState<boolean>(false);
+    const[containerHoverId, setContainerHoverId] = useState<string | null>(null);
     const {
         data
     } = useDataContext();
@@ -23,13 +26,14 @@ const Experience = () => {
             <div className={styles.cards}>
                 {experience.experience.map((each: any) => (
                     <CardWrapper
-                        setHover={(arg) => setContainerHover(arg)}
+                        setHover={(arg) => setContainerHoverId(arg)}
                         redirect={each.company_url}
+                        cardHoverId={each.designation}
                     >
                         <div 
                             className={styles.experienceCard}
-                            onMouseOver={() => setContainerHover(true)}
-                            onMouseLeave={() => setContainerHover(false)}
+                            onMouseOver={() => setContainerHoverId(each.designation)}
+                            onMouseLeave={() => setContainerHoverId(null)}
                         >
                             <div className={styles.cardLeft}>
                                 <p>{each.duration}</p>
@@ -45,7 +49,7 @@ const Experience = () => {
                                     iconPosition={'right'}
                                     hasBouncingIcon={true}
                                     bounceDirection={'moveTopRight'}
-                                    highlightOnContainerHover={containerHover}
+                                    highlightOnContainerHover={each.designation === containerHoverId}
                                 />
                                 <h6>{each.description}</h6>
                                 {each.company_products.length ?
@@ -81,7 +85,17 @@ const Experience = () => {
                 ))}
             </div>
             <div>
-
+                <Anchor 
+                    title={experience.resume.heading}
+                    redirect={experience.resume.url}
+                    titleSize={'medium'}
+                    iconSrc={icons[0].svg}
+                    hasTextHighlight={true}
+                    hasUnderline={false}
+                    iconPosition={'right'}
+                    hasBouncingIcon={true}
+                    bounceDirection={'moveTopRight'}      
+                />
             </div>
         </div>
     )

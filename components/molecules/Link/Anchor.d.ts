@@ -9,5 +9,5 @@ export default interface AnchorProps {
     iconPosition: 'left' | 'right';
     hasBouncingIcon: boolean;
     bounceDirection?: 'moveTopRight' | 'moveRight';
-    highlightOnContainerHover: boolean;
+    highlightOnContainerHover?: boolean;
 }

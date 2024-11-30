@@ -1,6 +1,8 @@
 
 
 .experience {
+    padding-top: 80px;
+
     h2 {
         text-transform: uppercase;
         font-size: 19px;
@@ -12,7 +14,8 @@
     .cards {
         display: flex;
         flex-direction: column;
-        gap: 50px;
+        gap: 30px;
+        margin-bottom: 30px;
     }
 
     .experienceCard {

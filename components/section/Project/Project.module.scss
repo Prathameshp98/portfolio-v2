@@ -1,0 +1,83 @@
+
+
+.project {
+    padding-top: 80px;
+
+    h2 {
+        text-transform: uppercase;
+        font-size: 19px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        display: none;
+    }
+
+    .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+
+    .projectCard {
+        display: flex;
+        gap: 20px;
+
+        .cardLeft {
+            min-width: 120px;
+
+            
+        }
+
+        .cardRight {
+
+            h6 {
+                font-size: 15px;
+                line-height: 20px;
+                font-weight: 300;
+                color: #94A3B8;
+                padding-top: 10px;
+            }
+
+            .companyBrands {
+                padding: 20px 0 0;
+                display: flex;
+                flex-wrap: wrap;
+
+                a {
+                    padding-right: 15px;
+                    padding-bottom: 7px;
+                }
+            }
+
+            .skills {
+                padding: 10px 0 0;
+                display: flex;
+                flex-wrap: wrap;
+
+                div {
+                    margin-right: 7px;
+                    margin-bottom: 5px;
+                }
+
+                p {
+                    line-height: 35px;
+                }
+            }
+
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .project h2 {
+        display: block;
+        padding-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .projectCard {
+        display: flex;
+        flex-direction: column;
+    }
+}

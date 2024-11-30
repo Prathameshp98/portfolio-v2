@@ -1,16 +1,74 @@
+import { useState } from 'react';
+import { useDataContext } from '@/context/consumption/useContext';
+import { 
+    CardWrapper,
+    Pill
+} from '@/components/atoms';
+import { Anchor } from '@/components/molecules';
 import styles from './Project.module.scss';
 
 const Project = () => {
+
+    const[containerHoverId, setContainerHoverId] = useState<string | null>(null);
+    const {
+        data
+    } = useDataContext();
+    const project = data.project;
+    const icons = data.icon[0].icons;
+    const featuredProjects = data.project.projects.filter((each: any) => each.is_featured == true);
+
+    console.log(project)
     
     return (
-        <div id="PROJECTS">
-            <h1>Project</h1>
-            <br />
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-            <br />
-            <br />
+        <div 
+            id="PROJECTS"
+            className={styles.project}
+        >
+            <h2>{project.heading}</h2>
+            <div className={styles.cards}>
+                {featuredProjects.map((each: any) => (
+                    <CardWrapper
+                        setHover={(arg) => setContainerHoverId(arg)}
+                        redirect={each.url}
+                        cardHoverId={each.name}
+                    >
+                        <div 
+                            className={styles.projectCard}
+                            onMouseOver={() => setContainerHoverId(each.name)}
+                            onMouseLeave={() => setContainerHoverId(null)}
+                        >
+                            <div className={styles.cardLeft}>
+                                {/* <p>{each.duration}</p> */}
+                            </div>
+                            <div className={styles.cardRight}>
+                                <Anchor 
+                                    title={each.name}
+                                    redirect={each.url}
+                                    titleSize={'medium'}
+                                    iconSrc={icons[0].svg}
+                                    hasTextHighlight={true}
+                                    hasUnderline={false}
+                                    iconPosition={'right'}
+                                    hasBouncingIcon={true}
+                                    bounceDirection={'moveTopRight'}
+                                    highlightOnContainerHover={each.name === containerHoverId}
+                                />
+                                <h6>{each.description}</h6>
+                                {each.skills_used.length ?
+                                    <div className={styles.skills}>
+                                        {each.skills_used.map((_: any, index: number) => (
+                                            <Pill 
+                                                id={String(index)}
+                                                skill={each.skills_used[index]}
+                                            />
+                                        ))}
+                                    </div>
+                                : null}   
+                            </div>
+                        </div>
+                    </CardWrapper>
+                ))}
+            </div>
         </div>
     )
 }

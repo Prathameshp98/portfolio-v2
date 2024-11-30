@@ -5,10 +5,10 @@ import useViewportWidth from '@/utils/useViewportWidth';
 const CardWrapper = ({
     children,
     setHover,
-    redirect
+    redirect,
+    cardHoverId
 }: CardWrapperProps) => {
     const width = useViewportWidth();
-    console.log(width)
 
     return (
         <>
@@ -18,8 +18,8 @@ const CardWrapper = ({
                 </div>) :
                 <a
                     className={`${styles.wrapper} ${styles.groupHoverElement}`}
-                    onMouseOver={() => setHover(true)}
-                    onMouseLeave={() => setHover(false)}
+                    onMouseOver={() => setHover(cardHoverId)}
+                    onMouseLeave={() => setHover(null)}
                     href={redirect}
                     target='_blank'
                 >
