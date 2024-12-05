@@ -76,8 +76,16 @@
 }
 
 @media screen and (max-width: 650px) {
-    .projectCard {
-        display: flex;
-        flex-direction: column;
+    .project {
+        padding-top: 50px;
+
+        .cards {
+            gap: 60px;
+        }
+
+        .projectCard {
+            display: flex;
+            flex-direction: column;
+        }
     }
 }

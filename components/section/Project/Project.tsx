@@ -2,13 +2,16 @@ import { useState } from 'react';
 import { useDataContext } from '@/context/consumption/useContext';
 import { 
     CardWrapper,
+    ImageContainer,
     Pill
 } from '@/components/atoms';
 import { Anchor } from '@/components/molecules';
+import useViewportWidth from '@/utils/useViewportWidth';
 import styles from './Project.module.scss';
 
 const Project = () => {
 
+    const width = useViewportWidth();
     const[containerHoverId, setContainerHoverId] = useState<string | null>(null);
     const {
         data
@@ -16,6 +19,8 @@ const Project = () => {
     const project = data.project;
     const icons = data.icon[0].icons;
     const featuredProjects = data.project.projects.filter((each: any) => each.is_featured == true);
+    const imageWidth = width > 650 ? 120 : 210;
+    const imageHeight = width > 650 ? 80 : 130;
 
     console.log(project)
     
@@ -38,7 +43,12 @@ const Project = () => {
                             onMouseLeave={() => setContainerHoverId(null)}
                         >
                             <div className={styles.cardLeft}>
-                                {/* <p>{each.duration}</p> */}
+                                <ImageContainer 
+                                    imageUrl={each.image_url}
+                                    altText={each.name}
+                                    width={imageWidth}
+                                    height={imageHeight}
+                                />
                             </div>
                             <div className={styles.cardRight}>
                                 <Anchor 
@@ -68,6 +78,19 @@ const Project = () => {
                         </div>
                     </CardWrapper>
                 ))}
+            </div>
+            <div>
+                <Anchor 
+                    title={project.project_archive.heading}
+                    redirect={project.project_archive.url}
+                    titleSize={'medium'}
+                    iconSrc={icons[0].svg}
+                    hasTextHighlight={true}
+                    hasUnderline={false}
+                    iconPosition={'right'}
+                    hasBouncingIcon={true}
+                    bounceDirection={'moveTopRight'}      
+                />
             </div>
         </div>
     )

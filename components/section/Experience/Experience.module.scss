@@ -81,11 +81,24 @@
         display: block;
         padding-bottom: 30px;
     }
+
+    .experience {
+        .cards {
+            gap: 50px;
+        }
+    }
+    
 }
 
 @media screen and (max-width: 650px) {
-    .experienceCard {
-        display: flex;
-        flex-direction: column;
+    .experience {
+        padding-top: 50px;
+        
+        .experienceCard {
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
     }
+    
 }
