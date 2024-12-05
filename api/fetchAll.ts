@@ -30,6 +30,7 @@ const fetchAll = async() => {
                 aboutResponse,
                 experienceResponse,
                 projectResponse,
+                writingResponse,
                 footerResponse
             ] = await Promise.all([
                 apiClient.get(`/social`),
@@ -39,6 +40,7 @@ const fetchAll = async() => {
                 apiClient.get(`/about?locale=${userLanguage}`),
                 apiClient.get(`/experience?locale=${userLanguage}`),
                 apiClient.get(`/project?locale=${userLanguage}`),
+                apiClient.get(`/writing?locale=${userLanguage}`),
                 apiClient.get(`/footer?locale=${userLanguage}`)
             ]);
 
@@ -50,6 +52,7 @@ const fetchAll = async() => {
                 about: aboutResponse.data,
                 experience: experienceResponse.data,
                 project: projectResponse.data,
+                writing: writingResponse.data,
                 footer: footerResponse.data
             };
 

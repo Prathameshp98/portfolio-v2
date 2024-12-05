@@ -22,8 +22,6 @@ const Project = () => {
     const imageWidth = width > 650 ? 120 : 210;
     const imageHeight = width > 650 ? 80 : 130;
 
-    console.log(project)
-    
     return (
         <div 
             id="PROJECTS"

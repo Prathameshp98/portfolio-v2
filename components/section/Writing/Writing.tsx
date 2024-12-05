@@ -1,6 +1,15 @@
+
+import { useDataContext } from '@/context/consumption/useContext';
 import styles from './Writing.module.scss';
 
 const Writing = () => {
+
+    const {
+        data
+    } = useDataContext();
+    const writing = data.writing;
+
+    console.log(writing);
     
     return (
         <div 
