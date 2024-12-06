@@ -9,6 +9,8 @@ $border-width: 2.5px;
 .image {
     border-radius: 3px;
     border: $border-width solid $base-border-color;
+    width: 120px;
+    height: 80px;
 }
 
 .image:hover {
@@ -17,4 +19,11 @@ $border-width: 2.5px;
 
 .imageHover {
     @include borderStyle($border-color-hover);
+}
+
+@media screen and (max-width: 650px) {
+    .image {
+        width: 210px;
+        height: 130px;
+    }
 }

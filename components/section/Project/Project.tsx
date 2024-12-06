@@ -6,12 +6,10 @@ import {
     Pill
 } from '@/components/atoms';
 import { Anchor } from '@/components/molecules';
-import useViewportWidth from '@/utils/useViewportWidth';
 import styles from './Project.module.scss';
 
 const Project = () => {
 
-    const width = useViewportWidth();
     const[containerHoverId, setContainerHoverId] = useState<string | null>(null);
     const {
         data
@@ -19,8 +17,6 @@ const Project = () => {
     const project = data.project;
     const icons = data.icon[0].icons;
     const featuredProjects = data.project.projects.filter((each: any) => each.is_featured == true);
-    const imageWidth = width > 650 ? 120 : 210;
-    const imageHeight = width > 650 ? 80 : 130;
 
     return (
         <div 
@@ -44,8 +40,6 @@ const Project = () => {
                                 <ImageContainer 
                                     imageUrl={each.image_url}
                                     altText={each.name}
-                                    width={imageWidth}
-                                    height={imageHeight}
                                 />
                             </div>
                             <div className={styles.cardRight}>

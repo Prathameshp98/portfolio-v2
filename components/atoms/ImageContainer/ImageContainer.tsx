@@ -1,12 +1,10 @@
-import Image from "next/image";
+
 import styles from './ImageContainer.module.scss';
 import ImageContainerProps from "./ImageContainerProps.d";
 
 const ImageContainer = ({
     imageUrl,
     altText,
-    width = 180,
-    height = 110,
     hightlightType = 'overImage',
     isHover = false
 }: ImageContainerProps) => {
@@ -17,11 +15,9 @@ const ImageContainer = ({
             `;
     
     return (
-        <Image 
+        <img
             src={imageUrl}
             alt={altText}
-            width={width}
-            height={height}
             className={className}
         />
     )

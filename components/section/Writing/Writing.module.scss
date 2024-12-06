@@ -1,4 +1,74 @@
 
 .writing {
     padding-top: 80px;
+    margin-bottom: 50px;
+
+    h2 {
+        text-transform: uppercase;
+        font-size: 19px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        display: none;
+    }
+
+    .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+
+    .projectCard {
+        display: flex;
+        gap: 20px;
+
+        .cardLeft {
+            min-width: 120px;
+        }
+
+        .cardRight {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .year {
+                text-align: left;
+                font-size: 15px;
+                font-weight: 500;
+                letter-spacing: 0px;
+                line-height: 20px;
+                color: rgba(247, 247, 247, 0.3);
+            }
+
+            .readTime {
+                font-size: 15px;
+                line-height: 20px;
+                font-weight: 300;
+                color: #94A3B8;
+                padding-top: 10px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .writing h2 {
+        display: block;
+        padding-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .writing {
+        padding-top: 50px;
+
+        .cards {
+            gap: 60px;
+        }
+
+        .projectCard {
+            display: flex;
+            flex-direction: column;
+        }
+    }
 }

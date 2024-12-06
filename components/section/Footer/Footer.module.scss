@@ -1,6 +1,6 @@
 
 .footer {
-    padding-bottom: 80px;
+    padding-bottom: 70px;
 }
 
 .footer p {
@@ -21,6 +21,7 @@
 @media screen and (max-width: 1024px) {
     .footer {
         width: 500px;
+        padding-bottom: 0;
     }
 }
 

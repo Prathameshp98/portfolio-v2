@@ -1,13 +1,21 @@
-
+import { useState } from 'react';
 import { useDataContext } from '@/context/consumption/useContext';
+import { 
+    CardWrapper, 
+    ImageContainer,
+    Pill 
+} from '@/components/atoms';
+import { Anchor } from '@/components/molecules';
 import styles from './Writing.module.scss';
 
 const Writing = () => {
 
+    const[containerHoverId, setContainerHoverId] = useState<string | null>(null);
     const {
         data
     } = useDataContext();
     const writing = data.writing;
+    const icons = data.icon[0].icons;
 
     console.log(writing);
     
@@ -16,13 +24,59 @@ const Writing = () => {
             id="WRITING"
             className={styles.writing}
         >
-            <h1>Writing</h1>
-            <br />
-            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-            <br />
-            <br />
+            <h2>{writing.heading}</h2>
+            <div className={styles.cards}>
+                {writing.writings.map((each: any, index: number) => (
+                    <CardWrapper
+                        key={index}
+                        setHover={(arg) => setContainerHoverId(arg)}
+                        redirect={each.url}
+                        cardHoverId={each.name}
+                    >
+                        <div 
+                            className={styles.projectCard}
+                            onMouseOver={() => setContainerHoverId(each.name)}
+                            onMouseLeave={() => setContainerHoverId(null)}
+                        >
+                            <div className={styles.cardLeft}>
+                                <ImageContainer 
+                                    imageUrl={each.image_url}
+                                    altText={each.name}
+                                />
+                            </div>
+                            <div className={styles.cardRight}>
+                                <p className={styles.year}>{each.year_published}</p>
+                                <Anchor 
+                                    title={each.name}
+                                    redirect={each.url}
+                                    titleSize={'medium'}
+                                    iconSrc={icons[0].svg}
+                                    hasTextHighlight={true}
+                                    hasUnderline={false}
+                                    iconPosition={'right'}
+                                    hasBouncingIcon={true}
+                                    bounceDirection={'moveTopRight'}
+                                    highlightOnContainerHover={each.name === containerHoverId}
+                                />
+                                <p className={styles.readTime}>{each.read}</p>
+                            </div>
+                        </div>
+                    </CardWrapper>
+                ))}
+            </div>
+            <div>
+                <Anchor 
+                    title={writing.blog_archieve.heading}
+                    redirect={writing.blog_archieve.url}
+                    titleSize={'medium'}
+                    iconSrc={icons[0].svg}
+                    hasTextHighlight={true}
+                    hasUnderline={false}
+                    iconPosition={'right'}
+                    hasBouncingIcon={true}
+                    bounceDirection={'moveTopRight'}      
+                />
+            </div>
         </div>
     )
 }
