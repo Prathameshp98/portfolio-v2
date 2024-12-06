@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { useDataContext } from '@/context/consumption/useContext';
 import { 
     CardWrapper, 
-    ImageContainer,
-    Pill 
+    ImageContainer
 } from '@/components/atoms';
 import { Anchor } from '@/components/molecules';
 import styles from './Writing.module.scss';

@@ -25,8 +25,9 @@ const Project = () => {
         >
             <h2>{project.heading}</h2>
             <div className={styles.cards}>
-                {featuredProjects.map((each: any) => (
+                {featuredProjects.map((each: any, index: number) => (
                     <CardWrapper
+                        key={index}
                         setHover={(arg) => setContainerHoverId(arg)}
                         redirect={each.url}
                         cardHoverId={each.name}
@@ -60,6 +61,7 @@ const Project = () => {
                                     <div className={styles.skills}>
                                         {each.skills_used.map((_: any, index: number) => (
                                             <Pill 
+                                                key={index}
                                                 id={String(index)}
                                                 skill={each.skills_used[index]}
                                             />

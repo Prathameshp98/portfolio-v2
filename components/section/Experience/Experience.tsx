@@ -24,8 +24,9 @@ const Experience = () => {
         >
             <h2>{experience.heading}</h2>
             <div className={styles.cards}>
-                {experience.experience.map((each: any) => (
+                {experience.experience.map((each: any, index: number) => (
                     <CardWrapper
+                        key={index}
                         setHover={(arg) => setContainerHoverId(arg)}
                         redirect={each.company_url}
                         cardHoverId={each.designation}
@@ -53,9 +54,13 @@ const Experience = () => {
                                 />
                                 <h6>{each.description}</h6>
                                 {each.company_products.length ?
-                                    <div className={styles.companyBrands}>
+                                    <div 
+                                        suppressHydrationWarning
+                                        className={styles.companyBrands}
+                                    >
                                         {each.company_products && each.company_products.map((product: any, index: number) => (
                                             <Anchor 
+                                                key={index}
                                                 title={product.name}
                                                 redirect={product.url}
                                                 titleSize={'small'}
@@ -73,6 +78,7 @@ const Experience = () => {
                                     <div className={styles.skills}>
                                         {each.skills.map((_: any, index: number) => (
                                             <Pill 
+                                                key={index}
                                                 id={String(index)}
                                                 skill={each.skills[index]}
                                             />

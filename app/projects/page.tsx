@@ -1,7 +1,8 @@
 "use client";
 import useCursorGradient from "@/utils/useCursorGradient";
+import { Table } from "@/components/molecules";
 
-export default function Projects() {
+const Projects = () => {
     const { position, visible } = useCursorGradient();
 
     return (
@@ -10,8 +11,11 @@ export default function Projects() {
             className={`${visible && 'cursor-gradient'}`}
             style={{top: position.y, left: position.x}}
           >
-          </div>
+          </div>       
+          <Table />
       </main>
       
     )
 }
+
+export default Projects;

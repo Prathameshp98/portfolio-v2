@@ -11,7 +11,7 @@ const CardWrapper = ({
     const width = useViewportWidth();
 
     return (
-        <>
+        <div suppressHydrationWarning>
             {width < 768 ?
                 (<div className={styles.baseWrapper}>
                     {children}
@@ -26,7 +26,7 @@ const CardWrapper = ({
                     {children}
                 </a>
             }
-        </>
+        </div>
     )
 }
 
