@@ -1,9 +1,15 @@
 "use client";
-import useCursorGradient from "@/utils/useCursorGradient";
+import useCursorGradient from "@/hooks/useCursorGradient";
+import FetchHandler from "@/hooks/FetchHandler";
 import { Table } from "@/components/molecules";
 
 const Projects = () => {
     const { position, visible } = useCursorGradient();
+    const { data, error } = FetchHandler();
+    const arrowIcon = {
+      left: data?.icon[0].icons[2].svg,
+      rightUp: data?.icon[0].icons[0].svg
+    }
 
     return (
       <main>
@@ -12,7 +18,11 @@ const Projects = () => {
             style={{top: position.y, left: position.x}}
           >
           </div>       
-          <Table />
+          <Table 
+            projectData={data?.project}
+            error={error}
+            arrowIcon={arrowIcon}
+          />
       </main>
       
     )

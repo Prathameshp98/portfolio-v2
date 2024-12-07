@@ -1,6 +1,6 @@
 import CardWrapperProps from './CardWrapper.d';
 import styles from './CardWrapper.module.scss';
-import useViewportWidth from '@/utils/useViewportWidth';
+import useViewportWidth from '@/hooks/useViewportWidth';
 
 const CardWrapper = ({
     children,
