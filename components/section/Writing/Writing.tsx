@@ -15,8 +15,6 @@ const Writing = () => {
     } = useDataContext();
     const writing = data.writing;
     const icons = data.icon[0].icons;
-
-    console.log(writing);
     
     return (
         <div 

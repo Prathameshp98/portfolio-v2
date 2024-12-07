@@ -7,4 +7,4 @@ export const DEFAULT_LANGUAGE = 'en-US';
 
 export const cacheKey = 'apiData';
 export const cacheExpirationKey = 'apiDataExpiration';
-export const cacheDuration = 5 * 60 * 1000;
+export const cacheDuration = 10 * 60 * 1000;

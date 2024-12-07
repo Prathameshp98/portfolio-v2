@@ -10,4 +10,5 @@ export default interface AnchorProps {
     hasBouncingIcon: boolean;
     bounceDirection?: 'moveTopRight' | 'moveRight';
     highlightOnContainerHover?: boolean;
+    rotateIcon?: boolean;
 }

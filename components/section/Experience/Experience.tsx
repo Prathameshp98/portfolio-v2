@@ -64,7 +64,7 @@ const Experience = () => {
                                                 title={product.name}
                                                 redirect={product.url}
                                                 titleSize={'small'}
-                                                iconSrc={icons[2].svg}
+                                                iconSrc={icons[3].svg}
                                                 hasTextHighlight={true}
                                                 hasUnderline={false}
                                                 iconPosition={'left'}

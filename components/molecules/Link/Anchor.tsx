@@ -13,7 +13,8 @@ const Anchor = ({
     iconPosition,
     hasBouncingIcon = false,
     bounceDirection,
-    highlightOnContainerHover = false
+    highlightOnContainerHover = false,
+    rotateIcon = false
 }: AnchorProps) => {
 
     const iconRef = useRef<HTMLDivElement>(null);
@@ -22,11 +23,6 @@ const Anchor = ({
         large: styles.large,
         medium: styles.medium,
         small: styles.small
-    };
-
-    const iconPositionStyles = {
-        left: styles.left,
-        right: styles.right
     };
 
     useEffect(() => {
@@ -42,10 +38,7 @@ const Anchor = ({
 
     return (
         <a 
-            className={`
-                ${styles.anchor}
-                ${iconPositionStyles[iconPosition]}
-            `}
+            className={`${styles.anchor}`}
             href={redirect}
             target='_blank'
         >
@@ -57,12 +50,33 @@ const Anchor = ({
                     ${hasUnderline && styles.textUnderline}
                 `}
             >
-                {title}
-                <div   
-                    ref={iconRef}  
-                    className={styles.inlineIcon}
-                    dangerouslySetInnerHTML={{ __html: iconSrc }} 
-                />
+                {iconPosition === 'right' ?
+                    <>
+                        {title}
+                        <div   
+                            ref={iconRef}  
+                            className={`
+                                ${styles.inlineIcon}
+                                ${rotateIcon && styles.rotate}
+                                ${sizeStyles[titleSize]}
+                            `}
+                            dangerouslySetInnerHTML={{ __html: iconSrc }} 
+                        />
+                    </>
+                     :
+                    <>
+                        <div   
+                            ref={iconRef}  
+                            className={`
+                                ${styles.inlineIcon}
+                                ${rotateIcon && styles.rotate}
+                            `}
+                            dangerouslySetInnerHTML={{ __html: iconSrc }} 
+                        />
+                        {title}
+                    </>
+                }
+                
             </p>
             
         </a>

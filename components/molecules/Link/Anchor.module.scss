@@ -15,9 +15,13 @@
     transition: transform 0.2s ease;
 }
 
+.anchor .small svg {
+    width: 12px;
+}
+
 .inlineIcon {
     display: inline-block;
-    margin-left: 5px; 
+    margin: 0 5px; 
     vertical-align: middle; 
 }
 
@@ -72,4 +76,8 @@
 
 .wrapperHoverIcon {
     fill: #5EEAD4;
+}
+
+.rotate {
+    transform: rotate(180deg);
 }

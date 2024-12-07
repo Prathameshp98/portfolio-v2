@@ -78,9 +78,9 @@ const Project = () => {
                     title={project.project_archive.heading}
                     redirect={project.project_archive.url}
                     titleSize={'medium'}
-                    iconSrc={icons[0].svg}
-                    hasTextHighlight={true}
-                    hasUnderline={false}
+                    iconSrc={icons[1].svg}
+                    hasTextHighlight={false}
+                    hasUnderline={true}
                     iconPosition={'right'}
                     hasBouncingIcon={true}
                     bounceDirection={'moveTopRight'}      
