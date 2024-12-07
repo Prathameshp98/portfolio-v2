@@ -48,12 +48,14 @@ const Table = ({ projectData, error, arrowIcon }: TableProps) => {
             <h1>{projectData.page_heading}</h1>
             <table className={styles.tableContainer}>
                 <thead>
-                    <th className={styles.mobileRow}>{projectData?.table_heading.year}</th>
-                    <th>{projectData?.table_heading.project}</th>
-                    <th className={styles.smallTablet}>{projectData?.table_heading.build_with}</th>
-                    <th className={styles.mobile}>{projectData?.table_heading.link}</th>
-                    <th className={styles.tablet}>{projectData?.table_heading.github}</th>
-                    <th className={styles.tablet}>{projectData?.table_heading.deployed_at}</th>
+                    <tr>
+                        <th className={styles.mobileRow}>{projectData?.table_heading.year}</th>
+                        <th>{projectData?.table_heading.project}</th>
+                        <th className={styles.smallTablet}>{projectData?.table_heading.build_with}</th>
+                        <th className={styles.mobile}>{projectData?.table_heading.link}</th>
+                        <th className={styles.tablet}>{projectData?.table_heading.github}</th>
+                        <th className={styles.tablet}>{projectData?.table_heading.deployed_at}</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {sortedProjects.map((project: any, index: number) => (
