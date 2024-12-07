@@ -1,20 +1,22 @@
 import Loading from '@/components/atoms/Loading/Loading';
 import Anchor from "../Link/Anchor";
 import { Pill } from '@/components/atoms';
+import useViewportWidth from '@/hooks/useViewportWidth';
 import TableProps from './Table.d';
 import styles from './Table.module.scss';
 
 const Table = ({ projectData, error, arrowIcon }: TableProps) => {
     if (!projectData || error) return <Loading hasError={error} />;
 
+    const width = useViewportWidth();
     const sortedProjects = projectData.projects.sort((a: any, b: any) => 
         (parseInt(b.year_completed) || 0) - (parseInt(a.year_completed) || 0)
     );
 
-    const renderAnchor = (title: string, url: string | null) => (
+    const renderAnchor = (title: string, url: string | null, replaceStr?: string) => (
         url ? (
             <Anchor 
-                title={title.replace('https://', '')} 
+                title={title.replace(replaceStr ? replaceStr : '', '')} 
                 redirect={url} 
                 titleSize="medium"
                 iconSrc={arrowIcon.rightUp}
@@ -46,26 +48,34 @@ const Table = ({ projectData, error, arrowIcon }: TableProps) => {
             <h1>{projectData.page_heading}</h1>
             <table className={styles.tableContainer}>
                 <thead>
-                    <th>{projectData?.table_heading.year}</th>
+                    <th className={styles.mobileRow}>{projectData?.table_heading.year}</th>
                     <th>{projectData?.table_heading.project}</th>
-                    <th>{projectData?.table_heading.build_with}</th>
-                    <th>{projectData?.table_heading.link}</th>
-                    <th>{projectData?.table_heading.github}</th>
-                    <th>{projectData?.table_heading.deployed_at}</th>
+                    <th className={styles.smallTablet}>{projectData?.table_heading.build_with}</th>
+                    <th className={styles.mobile}>{projectData?.table_heading.link}</th>
+                    <th className={styles.tablet}>{projectData?.table_heading.github}</th>
+                    <th className={styles.tablet}>{projectData?.table_heading.deployed_at}</th>
                 </thead>
                 <tbody>
                     {sortedProjects.map((project: any, index: number) => (
-                        <tr key={index}>
-                            <td>{project.year_completed || 'In Progress'}</td>
-                            <td>{project.name}</td>
-                            <td>
+                        <tr 
+                            key={index}
+                            className={styles.row}
+                        >
+                            <td className={styles.link}>{project.year_completed || 'In Progress'}</td>
+                            <td className={styles.mobileRow}>
+                                {width < 450 ?
+                                    <>{renderAnchor(project.name || '', project.url || '#')}</>
+                                    : <>{project.name}</>
+                                }
+                            </td>
+                            <td className={`${styles.skills} ${styles.smallTablet}`}>
                                 {project.skills_used.map((skill: string, i: number) => (
                                     <Pill key={i} id={String(i)} skill={skill} />
                                 ))}
                             </td>
-                            <td>{renderAnchor(project.url || '', project.url)}</td>
-                            <td>{renderAnchor(project.github_url || '', project.github_url)}</td>
-                            <td>{project.deployed_at || '-'}</td>
+                            <td className={`${styles.link} ${styles.mobile}`}>{renderAnchor(project.url || '', project.url, 'https://')}</td>
+                            <td className={`${styles.link} ${styles.tablet}`}>{renderAnchor(project.github_url || '', project.github_url, 'https://github.com/')}</td>
+                            <td className={`${styles.link} ${styles.tablet}`}>{project.deployed_at || '-'}</td>
                         </tr>
                     ))}
                 </tbody>
