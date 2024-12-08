@@ -1,7 +1,7 @@
 
 .appWrapper {
-    margin: 0;
-    padding: 0 150px;
+    margin: 0 150px;
+    // padding: 0 150px;
 }
 
 .app {
@@ -10,8 +10,6 @@
     padding: 100px 0;
     display: flex;
     justify-content: space-between;
-    overflow-x: hidden;
-    overflow-y: auto;
     text-align: justify;
     color: white;
     overflow-x: hidden;
@@ -34,15 +32,15 @@
 
 @media screen and (max-width: 1400px) {
     .appWrapper {
-        margin: 0;
-        padding: 0 100px;
+        margin: 0 100px;
+        // padding: 0 100px;
     }
 }
 
 @media screen and (max-width: 1200px) {
     .appWrapper {
-        margin: 0;
-        padding: 0 50px;
+        margin: 0 50px;
+        // padding: 0 50px;
     }
 
     .app {
@@ -56,8 +54,8 @@
 
 @media screen and (max-width: 768px) {
     .appWrapper {
-        margin: 0;
-        padding: 0 30px;
+        margin: 0 30px;
+        // padding: 0 30px;
     }
 
     .app {
