@@ -56,3 +56,9 @@ body {
 .paragraphOpace {
   color: rgba($bold-text, 0.3);
 }
+
+@media screen and (max-width: 768px) {
+  body, html {
+      overflow-x: hidden;
+  }
+}
