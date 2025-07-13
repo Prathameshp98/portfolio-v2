@@ -1,4 +1,4 @@
-import Loading from '@/components/atoms/Loading/Loading';
+import { SkeletonLoader } from '@/components/atoms';
 import Anchor from "../Link/Anchor";
 import { Pill } from '@/components/atoms';
 import useViewportWidth from '@/hooks/useViewportWidth';
@@ -6,7 +6,7 @@ import TableProps from './Table.d';
 import styles from './Table.module.scss';
 
 const Table = ({ projectData, error, arrowIcon }: TableProps) => {
-    if (!projectData || error) return <Loading hasError={error} />;
+    if (!projectData || error) return <SkeletonLoader hasError={error} variant="table" />;
 
     const width = useViewportWidth();
     const sortedProjects = projectData.projects.sort((a: any, b: any) => 

@@ -1,0 +1,39 @@
+.section {
+  padding-top: 80px;
+  line-height: 27px;
+
+  h2 {
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    display: none;
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .section {
+    padding-top: 100px;
+
+    h2 {
+      display: block;
+      padding-bottom: 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .section {
+    padding-top: 50px;
+
+    .cards {
+      gap: 60px;
+    }
+  }
+} 

@@ -1,0 +1,46 @@
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  width: 300px;
+  flex-shrink: 0;
+
+  .personalInfo {
+    padding-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .jumpLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .socials {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .navigation {
+    width: 100%;
+    gap: 40px;
+
+    .socials {
+      justify-content: flex-start;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navigation {
+    gap: 30px;
+
+    .personalInfo {
+      padding-top: 20px;
+    }
+  }
+} 

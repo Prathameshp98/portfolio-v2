@@ -42,7 +42,7 @@ const Anchor = ({
             href={redirect}
             target='_blank'
         >
-            <p
+            <span
                 className={`
                     ${sizeStyles[titleSize]}
                     ${highlightOnContainerHover && styles.wrapperHoverText}
@@ -77,7 +77,7 @@ const Anchor = ({
                     </>
                 }
                 
-            </p>
+            </span>
             
         </a>
     )

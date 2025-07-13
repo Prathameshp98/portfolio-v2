@@ -11,22 +11,19 @@ const CardWrapper = ({
     const width = useViewportWidth();
 
     return (
-        <>
-            {width < 768 ?
-                (<div className={styles.baseWrapper}>
-                    {children}
-                </div>) :
-                <a
-                    className={`${styles.wrapper} ${styles.groupHoverElement}`}
-                    onMouseOver={() => setHover(cardHoverId)}
-                    onMouseLeave={() => setHover(null)}
-                    href={redirect}
-                    target='_blank'
-                >
-                    {children}
-                </a>
-            }
-        </>
+        <div
+            className={width < 768 ? styles.baseWrapper : `${styles.wrapper} ${styles.groupHoverElement}`}
+            onMouseOver={() => setHover(cardHoverId)}
+            onMouseLeave={() => setHover(null)}
+            onClick={() => {
+                if (redirect) window.open(redirect, '_blank');
+            }}
+            role="button"
+            tabIndex={0}
+            style={{ cursor: 'pointer' }}
+        >
+            {children}
+        </div>
     )
 }
 

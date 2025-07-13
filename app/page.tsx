@@ -2,7 +2,7 @@
 import styles from './page.module.scss';
 import DataContext from '@/context/creation/createContext';
 import useCursorGradient from '@/hooks/useCursorGradient';
-import Loading from '@/components/atoms/Loading/Loading';
+import { SkeletonLoader } from '@/components/atoms';
 import Left from '@/components/Partial/Left/Left';
 import Right from '@/components/Partial/Right/Right';
 import FetchHandler from '@/hooks/FetchHandler';
@@ -23,7 +23,7 @@ export default function Home() {
                style={{top: position.y, left: position.x}}
             >
             </div>
-            {(!data || error) && <Loading hasError={error}/>}
+            {(!data || error) && <SkeletonLoader hasError={error} variant="full-page" />}
             {data && 
               <div className={styles.appWrapper}>
                 <div className={styles.app}>
