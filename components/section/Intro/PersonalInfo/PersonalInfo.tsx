@@ -7,7 +7,7 @@ const PersonalInfo = () => {
         data,
         setData
     } = useDataContext();
-    const intro = data.intro;
+    const intro = data.intro.data;
 
     return (
         <div className={styles.personalInfo}>

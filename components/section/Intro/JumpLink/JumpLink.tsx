@@ -8,7 +8,7 @@ const JumpLink = () => {
         data,
         setData
     } = useDataContext();
-    const section = data.section.sections;
+    const section = data.section.data.sections;
     const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
     useEffect(() => {

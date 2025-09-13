@@ -16,7 +16,7 @@ const Project = () => {
     } = useDataContext();
     const project = data.project;
     const icons = data.icon[0].icons;
-    const featuredProjects = data.project.projects.filter((each: any) => each.is_featured == true);
+    const featuredProjects = data.project.data.projects.filter((each: any) => each.is_featured == true);
 
     return (
         <div 
@@ -75,8 +75,8 @@ const Project = () => {
             </div>
             <div>
                 <Anchor 
-                    title={project.project_archive.heading}
-                    redirect={project.project_archive.url}
+                    title={project.data.project_archive.heading}
+                    redirect={project.data.project_archive.url}
                     titleSize={'medium'}
                     iconSrc={icons[1].svg}
                     hasTextHighlight={false}

@@ -1,0 +1,131 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+.goHome {
+    margin-bottom: 3rem;
+}
+
+.header {
+    margin-bottom: 3rem;
+    text-align: center;
+    
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+        
+        @media (max-width: 768px) {
+            font-size: 2rem;
+        }
+        
+        @media (max-width: 480px) {
+            font-size: 1.75rem;
+        }
+    }
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    
+    @media (max-width: 768px) {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+.resultsInfo {
+    margin-bottom: 1.5rem;
+    
+    p {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin: 0;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    
+    @media (max-width: 768px) {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    @media (max-width: 480px) {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+.noResults {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 4rem 2rem;
+    
+    h3 {
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+    
+    p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+    }
+}
+
+.errorState {
+    text-align: center;
+    padding: 4rem 2rem;
+    
+    h1 {
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+    }
+    
+    p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+    }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+    
+    .goHome {
+        margin-bottom: 2rem;
+    }
+    
+    .header {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .goHome {
+        margin-bottom: 1.5rem;
+    }
+    
+    .header {
+        margin-bottom: 1.5rem;
+    }
+}

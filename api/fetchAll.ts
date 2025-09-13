@@ -33,18 +33,20 @@ const fetchAll = async () => {
       aboutResponse,
       experienceResponse,
       projectResponse,
+      certificationResponse,
       writingResponse,
       footerResponse
     ] = await Promise.all([
-      apiClient.get(`/social`),
-      apiClient.get(`/icon`),
-      apiClient.get(`/section?locale=${userLanguage}`),
-      apiClient.get(`/intro?locale=${userLanguage}`),
-      apiClient.get(`/about?locale=${userLanguage}`),
-      apiClient.get(`/experience?locale=${userLanguage}`),
-      apiClient.get(`/project?locale=${userLanguage}`),
-      apiClient.get(`/writing?locale=${userLanguage}`),
-      apiClient.get(`/footer?locale=${userLanguage}`)
+      apiClient.get(`api/social`),
+      apiClient.get(`api/icon`),
+      apiClient.get(`api/section?locale=${userLanguage}`),
+      apiClient.get(`api/intro?locale=${userLanguage}`),
+      apiClient.get(`api/about?locale=${userLanguage}`),
+      apiClient.get(`api/experience?locale=${userLanguage}`),
+      apiClient.get(`api/project?locale=${userLanguage}`),
+      apiClient.get(`api/certifications?locale=${userLanguage}`),
+      apiClient.get(`api/writing?locale=${userLanguage}`),
+      apiClient.get(`api/footer?locale=${userLanguage}`)
     ]);
 
     const data = {
@@ -55,15 +57,14 @@ const fetchAll = async () => {
       about: aboutResponse.data,
       experience: experienceResponse.data,
       project: projectResponse.data,
+      certification: certificationResponse.data,
       writing: writingResponse.data,
       footer: footerResponse.data
     };
 
     try {
-        console.log(data)
         try {
             const encrypted = await encryptData(data);
-            console.log(encrypted, 'wrfrwf');
             localStorage.setItem(cacheKey, encrypted);
       localStorage.setItem(cacheExpirationKey, Date.now().toString());
           } catch (e) {

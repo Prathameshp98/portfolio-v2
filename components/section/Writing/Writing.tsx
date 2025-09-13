@@ -23,7 +23,7 @@ const Writing = () => {
         >
             <h2>{writing.heading}</h2>
             <div className={styles.cards}>
-                {writing.writings.map((each: any, index: number) => (
+                {writing.data.writings.map((each: any, index: number) => (
                     <CardWrapper
                         key={index}
                         setHover={(arg) => setContainerHoverId(arg)}
@@ -63,8 +63,8 @@ const Writing = () => {
             </div>
             <div>
                 <Anchor 
-                    title={writing.blog_archieve.heading}
-                    redirect={writing.blog_archieve.url}
+                    title={writing.data.blog_archieve.heading}
+                    redirect={writing.data.blog_archieve.url}
                     titleSize={'medium'}
                     iconSrc={icons[0].svg}
                     hasTextHighlight={true}

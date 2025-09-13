@@ -24,7 +24,7 @@ const Experience = () => {
         >
             <h2>{experience.heading}</h2>
             <div className={styles.cards}>
-                {experience.experience.map((each: any, index: number) => (
+                {experience.data.experience.map((each: any, index: number) => (
                     <CardWrapper
                         key={index}
                         setHover={(arg) => setContainerHoverId(arg)}
@@ -92,8 +92,8 @@ const Experience = () => {
             </div>
             <div>
                 <Anchor 
-                    title={experience.resume.heading}
-                    redirect={experience.resume.url}
+                    title={experience.data.resume.heading}
+                    redirect={experience.data.resume.url}
                     titleSize={'medium'}
                     iconSrc={icons[0].svg}
                     hasTextHighlight={true}

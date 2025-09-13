@@ -1,7 +1,7 @@
 "use client";
 import useCursorGradient from "@/hooks/useCursorGradient";
 import FetchHandler from "@/hooks/FetchHandler";
-import { Table } from "@/components/molecules";
+import { ProjectsGrid } from "@/components/molecules";
 
 const Projects = () => {
     const { position, visible } = useCursorGradient();
@@ -18,7 +18,7 @@ const Projects = () => {
             style={{top: position.y, left: position.x}}
           >
           </div>       
-          <Table 
+          <ProjectsGrid 
             projectData={data?.project}
             error={error}
             arrowIcon={arrowIcon}
