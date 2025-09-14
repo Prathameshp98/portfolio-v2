@@ -22,7 +22,7 @@ const Experience = () => {
             id="EXPERIENCE"
             className={styles.experience}
         >
-            <h2>{experience.heading}</h2>
+            <h2>{experience.data.heading}</h2>
             <div className={styles.cards}>
                 {experience.data.experience.map((each: any, index: number) => (
                     <CardWrapper

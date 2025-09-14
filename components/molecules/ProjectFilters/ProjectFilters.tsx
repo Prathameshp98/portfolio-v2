@@ -4,7 +4,7 @@ import styles from './ProjectFilters.module.scss';
 interface ProjectFiltersProps {
     projects: Array<{
         year_completed: string;
-    }>;
+    }> | undefined;
     onFilterChange: (filters: FilterState) => void;
 }
 
@@ -21,6 +21,8 @@ const ProjectFilters = ({ projects, onFilterChange }: ProjectFiltersProps) => {
 
     // Get unique years from projects
     const getUniqueYears = () => {
+        if (!projects || !Array.isArray(projects)) return [];
+        
         const years = projects
             .map(project => project.year_completed)
             .filter(year => year && year !== 'In Progress')

@@ -23,7 +23,7 @@ const Project = () => {
             id="PROJECTS"
             className={styles.project}
         >
-            <h2>{project.heading}</h2>
+            <h2>{project.data.heading}</h2>
             <div className={styles.cards}>
                 {featuredProjects.map((each: any, index: number) => (
                     <CardWrapper

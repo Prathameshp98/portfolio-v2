@@ -6,8 +6,8 @@ import styles from './ProjectsGrid.module.scss';
 
 interface ProjectsGridProps {
     projectData: {
-        page_heading: string;
-        projects: Array<{
+        page_heading?: string;
+        projects?: Array<{
             name: string;
             description?: string;
             year_completed: string;
@@ -17,6 +17,19 @@ interface ProjectsGridProps {
             deployed_at: string | null;
             image_url?: string;
         }>;
+        data?: {
+            page_heading: string;
+            projects: Array<{
+                name: string;
+                description?: string;
+                year_completed: string;
+                skills_used: string[];
+                url: string | null;
+                github_url: string | null;
+                deployed_at: string | null;
+                image_url?: string;
+            }>;
+        };
     };
     error: any;
     arrowIcon: {
@@ -59,7 +72,7 @@ const ProjectsGrid = ({ projectData, error, arrowIcon }: ProjectsGridProps) => {
         return null;
     }
 
-    const sortedProjects = projectData.projects.sort((a: any, b: any) => 
+    const sortedProjects = (projectData.data?.projects || projectData.projects || []).sort((a: any, b: any) => 
         (parseInt(b.year_completed) || 0) - (parseInt(a.year_completed) || 0)
     );
 
@@ -99,19 +112,19 @@ const ProjectsGrid = ({ projectData, error, arrowIcon }: ProjectsGridProps) => {
             </div>
             
             <div className={styles.header}>
-                <h1>{projectData.page_heading}</h1>
+                <h1>{projectData.data?.page_heading || projectData.page_heading}</h1>
                 <p className={styles.subtitle}>
                     A collection of projects I've built over the years, showcasing different technologies and approaches.
                 </p>
             </div>
 
             <ProjectFilters 
-                projects={projectData.projects}
+                projects={projectData.data?.projects || projectData.projects}
                 onFilterChange={handleFilterChange}
             />
 
             <div className={styles.resultsInfo}>
-                <p>Showing {filteredProjects.length} of {projectData.projects.length} projects</p>
+                <p>Showing {filteredProjects.length} of {(projectData.data?.projects || projectData.projects || []).length} projects</p>
             </div>
 
             <div className={styles.grid}>

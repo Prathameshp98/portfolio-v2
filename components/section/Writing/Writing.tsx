@@ -21,7 +21,7 @@ const Writing = () => {
             id="WRITING"
             className={styles.writing}
         >
-            <h2>{writing.heading}</h2>
+            <h2>{writing.data.heading}</h2>
             <div className={styles.cards}>
                 {writing.data.writings.map((each: any, index: number) => (
                     <CardWrapper

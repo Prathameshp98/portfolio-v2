@@ -7,9 +7,7 @@ const About = () => {
         data,
         setData
     } = useDataContext();
-    const about = data.about.data;
-    console.log(about);
-    
+    const about = data.about.data;    
     return (
         <div 
             id="ABOUT"

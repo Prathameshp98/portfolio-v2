@@ -25,7 +25,7 @@ const Certification = () => {
             id="CERTIFICATIONS"
             className={styles.certification}
         >
-            <h2>{certification.name}</h2>
+            <h2>{certification.data.name}</h2>
             <div className={styles.cards}>
                 {certification.data.certifications.map((cert: any, index: number) => (
                     <CardWrapper
