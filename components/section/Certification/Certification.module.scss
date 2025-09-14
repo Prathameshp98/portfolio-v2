@@ -8,6 +8,7 @@
         margin-bottom: 2rem;
         letter-spacing: 0.1em;
         text-transform: uppercase;
+        display: none;
     }
 }
 
@@ -133,6 +134,12 @@
     
     @media (max-width: 480px) {
         font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .certification h2 {
+        display: block;
     }
 }
 
