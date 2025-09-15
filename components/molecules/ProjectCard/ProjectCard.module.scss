@@ -26,6 +26,7 @@
         height: 100%;
         object-fit: cover;
         transition: transform 0.3s ease;
+        border-radius: 12px;
     }
     
     &:hover img {
@@ -102,7 +103,7 @@
     }
     
     .cardTop {
-        height: 160px;
+        height: 240px;
     }
     
     .cardHeader {
@@ -128,7 +129,7 @@
     }
     
     .cardTop {
-        height: 140px;
+        height: 240px;
     }
     
     .description {
